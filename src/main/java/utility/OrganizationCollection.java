@@ -53,7 +53,7 @@ public class OrganizationCollection {
     public void clearColl(){
         hm1.clear();
     }
-    public void removeLower(Integer key){
+    public void removeLowerKey(Integer key){
        for (Integer i: keys ){
            if(i.compareTo(key) < 0){
                hm1.remove(i);
@@ -127,5 +127,14 @@ public class OrganizationCollection {
             }
         }
 
+    }
+    public Organization findByInsert(Organization findeOrg){
+        for(Integer i: keys){
+            Organization organization = hm1.get(i);
+            if(organization.equals(findeOrg)){
+                return organization;
+            }
+        }
+        return null;
     }
 }

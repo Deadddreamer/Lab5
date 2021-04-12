@@ -19,7 +19,7 @@ public class RemoveLowerKeyNull extends AbstarctCommand {
             if (argument.isEmpty()) throw new WrongNumberOfElements();
             if (organizationCollection.collSize() == 0) throw new EmptyCollectionExeption();
             Integer key = Integer.parseInt(argument);
-            organizationCollection.removeLower(key);
+            organizationCollection.removeLowerKey(key);
             Console.println("Организации удалены!");
         } catch (WrongNumberOfElements exeption) {
             Console.println("Использование: '" + getName() + "' - " + getDesc());
