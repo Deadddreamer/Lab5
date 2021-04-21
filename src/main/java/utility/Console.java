@@ -89,6 +89,12 @@ public class Console {
             case "update_id":
                 if (!commandsList.updateId(userCommand[1])) return 1;
                 break;
+            case "remove_lower":
+                if (!commandsList.removeLowerElement(userCommand[1])) return 1;
+                break;
+            case "replace_if_greater_null":
+                if(!commandsList.replaceIfGreater(userCommand[1])) return 1;
+                break;
             default:
                 if (!commandsList.noSuchCommand(userCommand[0])) return 1;
         }

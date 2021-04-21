@@ -33,7 +33,7 @@ public class OrganizationCollection {
     HashMap<Integer,Organization> hm1 = (HashMap) xs.fromXML(fr);
     ArrayList<Integer> keys = new ArrayList<>(hm1.keySet());
 
-    public void outcall(OrganizationCollection orgcall) {
+    public void outcall() {
         for (Object i :
                 hm1.keySet()) {
             System.out.println(hm1.get(i));
@@ -136,5 +136,11 @@ public class OrganizationCollection {
             }
         }
         return null;
+    }
+    public boolean compareTwo(Integer key, Organization organization){
+        return organization.compareTo(hm1.get(key)) > 0;
+    }
+    public void replaceOrg(Integer key,Organization organization){
+        hm1.replace(key,organization);
     }
 }

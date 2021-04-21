@@ -56,4 +56,23 @@
       </postalAddress>
     </Data.Organization>
   </entry>
+  <entry>
+    <int>4</int>
+    <Data.Organization>
+      <id>4</id>
+      <name>1</name>
+      <coordinates>
+        <x>1</x>
+        <y>1</y>
+      </coordinates>
+      <creationDate>2021-04-16T17:36:47.4004521+03:00[GMT+03:00]</creationDate>
+      <annualTurnover>1</annualTurnover>
+      <employeesCount>1</employeesCount>
+      <type>TRUST</type>
+      <postalAddress>
+        <street>1</street>
+        <zipCode>1</zipCode>
+      </postalAddress>
+    </Data.Organization>
+  </entry>
 </map>

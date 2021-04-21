@@ -8,8 +8,8 @@ import java.time.ZonedDateTime;
         private String name; //Поле не может быть null, Строка не может быть пустой
         private Coordinates coordinates; //Поле не может быть null
         private java.time.ZonedDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
-        private int annualTurnover; //Значение поля должно быть больше 0
-        private long employeesCount; //Значение поля должно быть больше 0
+        private Integer annualTurnover; //Значение поля должно быть больше 0
+        private Long employeesCount; //Значение поля должно быть больше 0
         private OrganizationType type; //Поле не может быть null
         private Address postalAddress; //Поле не может быть null
 
@@ -63,5 +63,16 @@ import java.time.ZonedDateTime;
             return id.compareTo(organization.getId());
         }
 
-
+        @Override
+        public boolean equals(Object object) {
+            if (this == object) return true;
+            Organization org = (Organization) object;
+            return id.equals(org.getId()) &&
+                    name.equals(org.getName()) &&
+                    employeesCount.equals(org.getEmployeesCount()) &&
+                    annualTurnover.equals(org.getAnnualTurnover()) &&
+                    type.equals(org.getType()) &&
+                    coordinates.equals(org.getCoordinates()) &&
+                    postalAddress.equals(org.getPostalAddress());
+        }
     }

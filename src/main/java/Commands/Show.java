@@ -16,7 +16,7 @@ public class Show extends AbstarctCommand{
     public boolean execute(String argument) {
         try {
             if (!argument.isEmpty()) throw new WrongNumberOfElements();
-            organizationCollection.outcall(organizationCollection);
+            organizationCollection.outcall();
             if (organizationCollection.collSize() == 0) throw new EmptyCollectionExeption();
             return true;
         } catch (WrongNumberOfElements exception) {

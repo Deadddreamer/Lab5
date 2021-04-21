@@ -103,4 +103,6 @@ public class CommandsList {
     public boolean lessThanEmployees(String argument){return countLessEmployeesCount.execute(argument);}
     public boolean printUniqueEmployees(String argument){return printUniqueEmployeesCount.execute(argument);}
     public boolean updateId(String argument){return updateIdElement.execute(argument);}
+    public boolean removeLowerElement(String argument){return removeLowerElement.execute(argument);}
+    public boolean replaceIfGreater(String argument){return replaceIfGreaterElementNull.execute(argument);}
 }

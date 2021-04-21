@@ -15,4 +15,20 @@ public class Coordinates {
                 ", y=" + y +
                 '}';
     }
+    public Long getX(){
+        return x;
+    }
+
+    public Integer getY(){
+        return y;
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj instanceof Coordinates) {
+            Coordinates coordinatesObj = (Coordinates) obj;
+            return (x == coordinatesObj.getX()) && y.equals(coordinatesObj.getY());
+        }
+        return false;
+    }
 }

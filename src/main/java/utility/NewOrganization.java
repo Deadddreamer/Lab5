@@ -70,7 +70,7 @@ public class NewOrganization {
         String ystr;
         Integer y;
         while (true) {
-        try {Console.println("Введите координату X:");
+        try {Console.println("Введите координату Y:");
             Console.print(Main.PS2);
             ystr = scanner.nextLine().trim();
             y = Integer.parseInt(ystr);
