@@ -20,7 +20,7 @@ public class RemoveKeyNull extends AbstarctCommand {
             if (argument.isEmpty()) throw new WrongNumberOfElements();
             if (organizationCollection.collSize() == 0) throw new EmptyCollectionExeption();
             int id = Integer.parseInt(argument);
-            if (organizationCollection.trykey(id) == -1) throw new KeyNotFoundExeption();
+            if (!organizationCollection.trykey(id)) throw new KeyNotFoundExeption();
             organizationCollection.removeOrg(id);
             Console.println("Организация удалена!");
             return true;

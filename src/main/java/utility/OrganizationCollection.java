@@ -1,10 +1,16 @@
 package utility;
 import Data.Organization;
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.StreamException;
+import com.thoughtworks.xstream.security.ForbiddenClassException;
+import com.thoughtworks.xstream.security.NoTypePermission;
+import com.thoughtworks.xstream.security.NullPermission;
+import com.thoughtworks.xstream.security.PrimitiveTypePermission;
 
 import java.io.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,27 +18,31 @@ import java.util.Map;
 public class OrganizationCollection {
     private LocalDateTime initTime = null;
     private LocalDateTime lastSave = null;
-    public HashMap<Integer, Organization> collection = new HashMap<Integer, Organization>();
 
-
-
-    FileReader fileReader;
-    XStream xstream = new XStream();
-    FileReader fr;
+    FileReader file;
+    FileReader test;
+    XStream xs = new XStream();
 
     {
         try {
-            fr = new FileReader("C:\\Users\\vital\\IdeaProjects\\Lab5mav\\l");
-            initTime = LocalDateTime.now();
+            file = new FileReader("C:\\Users\\vital\\IdeaProjects\\Lab5mav\\l");
+            test = new FileReader("C:\\Users\\vital\\IdeaProjects\\Lab5mav\\l");
+
+          Object tryFile = xs.fromXML(test);
+          initTime = LocalDateTime.now();
+
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            Console.printerror("Файл не найден");
+            System.exit(0);
+        }
+          catch (StreamException exception){
+            Console.printerror("Файл повреждён");
+            System.exit(0);
         }
     }
 
-    XStream xs = new XStream();
-    HashMap<Integer,Organization> hm1 = (HashMap) xs.fromXML(fr);
+    HashMap<Integer,Organization> hm1 = (HashMap) xs.fromXML(file);
     ArrayList<Integer> keys = new ArrayList<>(hm1.keySet());
-
     public void outcall() {
         for (Object i :
                 hm1.keySet()) {
@@ -42,10 +52,10 @@ public class OrganizationCollection {
     public int collSize(){
         return hm1.size();
     }
-    public int trykey(Integer id){
+    public boolean trykey(Integer id){
        if (hm1.get(id) == null){
-       return -1;}
-        else {return 0;}
+       return false;}
+        else {return true;}
     }
     public void removeOrg(Integer key){
         hm1.remove(key);
@@ -70,7 +80,7 @@ public class OrganizationCollection {
             osr.close();
             lastSave = LocalDateTime.now();
         } catch (IOException e) {
-            e.printStackTrace();
+            Console.printerror("Ошибка");
         }
     }
     public void addOrg(Integer key, Organization organization){
@@ -143,4 +153,10 @@ public class OrganizationCollection {
     public void replaceOrg(Integer key,Organization organization){
         hm1.replace(key,organization);
     }
+   public Integer createId(){
+        for(Integer i: keys){
+            if(hm1.size() == i)  return hm1.get(i).getId() + 1;
+        }
+    return 1;
+   }
 }

@@ -81,16 +81,11 @@ public class CommandsList {
         Console.println("Команда '" + command + "' не найдена. Наберите 'help' для справки.");
         return false;
     }
-    public boolean show (String argument){
-       return show.execute(argument);
-
-    }
+    public boolean show (String argument){ return show.execute(argument); }
     public boolean removeKeyNull(String argument){
         return removeKeyNull.execute(argument);
     }
-    public boolean clear(String argument){
-        return clear.execute(argument);
-    }
+    public boolean clear(String argument){ return clear.execute(argument);}
     public boolean removeLowerKeyNull(String argument){
         return removeLowerKeyNull.execute(argument);
     }
@@ -105,4 +100,5 @@ public class CommandsList {
     public boolean updateId(String argument){return updateIdElement.execute(argument);}
     public boolean removeLowerElement(String argument){return removeLowerElement.execute(argument);}
     public boolean replaceIfGreater(String argument){return replaceIfGreaterElementNull.execute(argument);}
+    public boolean executeScript(String argument){return executeScriptFileName.execute(argument);}
 }

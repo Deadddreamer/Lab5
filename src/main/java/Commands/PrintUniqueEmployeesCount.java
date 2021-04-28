@@ -20,6 +20,9 @@ public class PrintUniqueEmployeesCount extends AbstarctCommand {
         } catch (WrongNumberOfElements wrongNumberOfElements) {
             Console.println("Использование: '" + getName() + "' - " + getDesc());
         }
+        catch (NullPointerException exception){
+            Console.printerror("Коллекция пуста");
+        }
         return false;
     }
 }

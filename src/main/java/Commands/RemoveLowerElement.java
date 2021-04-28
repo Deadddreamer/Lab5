@@ -3,6 +3,7 @@ package Commands;
 import Data.Organization;
 import Exceptions.EmptyCollectionExeption;
 import Exceptions.NoSuchOrganization;
+import Exceptions.ScriptError;
 import Exceptions.WrongNumberOfElements;
 import utility.Console;
 import utility.NewOrganization;
@@ -46,6 +47,9 @@ public class RemoveLowerElement extends AbstarctCommand {
         } catch (NoSuchOrganization exception) {
             Console.printerror("Организации с такими данными в коллекции нет!");
         }
+          catch (ScriptError exception){
+            return false;
+          }
         return false;
     }
 }

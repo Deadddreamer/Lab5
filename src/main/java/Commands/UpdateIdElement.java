@@ -1,6 +1,7 @@
 package Commands;
 
 import Data.Organization;
+import Exceptions.ScriptError;
 import Exceptions.WrongNumberOfElements;
 import utility.Console;
 import utility.NewOrganization;
@@ -36,6 +37,12 @@ public class UpdateIdElement extends AbstarctCommand {
         } catch (WrongNumberOfElements exception) {
             Console.println("Использование: '" + getName() + "' - " + getDesc());
         }
+          catch (ScriptError exception){
+            return false;
+        }
+          catch (NullPointerException exception){
+            Console.printerror("Нет такого id");
+          }
         return false;
     }
 }

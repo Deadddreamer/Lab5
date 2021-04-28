@@ -1,6 +1,7 @@
 package Commands;
 
 import Data.Organization;
+import Exceptions.ScriptError;
 import Exceptions.WrongNumberOfElements;
 import utility.Console;
 import utility.NewOrganization;
@@ -9,10 +10,10 @@ import utility.OrganizationCollection;
 import java.time.ZonedDateTime;
 
 public class InsertNullElement extends AbstarctCommand {
-    private NewOrganization newOrganization;
-    private OrganizationCollection organizationCollection;
+    private final NewOrganization newOrganization;
+    private final OrganizationCollection organizationCollection;
     public InsertNullElement(NewOrganization newOrganization, OrganizationCollection organizationCollection) {
-        super("insert null {element}","добавить новый элемент с заданным ключом");
+        super("insert_null {element}","добавить новый элемент с заданным ключом");
         this.organizationCollection = organizationCollection;
         this.newOrganization = newOrganization;
     }
@@ -23,7 +24,7 @@ public class InsertNullElement extends AbstarctCommand {
             if (argument.isEmpty()) throw new WrongNumberOfElements();
             int key = Integer.parseInt(argument);
             organizationCollection.addOrg(key ,new Organization(
-                    newOrganization.askId(),
+                    organizationCollection.createId(),
                     newOrganization.askName(),
                     newOrganization.askCoordinates(),
                     newOrganization.askAnnualturnOver(),
@@ -37,6 +38,9 @@ public class InsertNullElement extends AbstarctCommand {
         } catch (WrongNumberOfElements exception) {
             Console.println("Использование: '" + getName() + "' - " + getDesc());
         }
+          catch (ScriptError exception){
+            return false;
+          }
         return false;
 
     }

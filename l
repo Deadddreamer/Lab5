@@ -75,4 +75,23 @@
       </postalAddress>
     </Data.Organization>
   </entry>
+  <entry>
+    <int>5</int>
+    <Data.Organization>
+      <id>5</id>
+      <name>OlegHuyesos</name>
+      <coordinates>
+        <x>322</x>
+        <y>228</y>
+      </coordinates>
+      <creationDate>2021-04-28T21:29:52.0359033+03:00[GMT+03:00]</creationDate>
+      <annualTurnover>3228</annualTurnover>
+      <employeesCount>1488</employeesCount>
+      <type>TRUST</type>
+      <postalAddress>
+        <street>Huy</street>
+        <zipCode>SOsi</zipCode>
+      </postalAddress>
+    </Data.Organization>
+  </entry>
 </map>

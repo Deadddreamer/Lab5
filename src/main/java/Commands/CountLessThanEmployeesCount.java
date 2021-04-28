@@ -22,6 +22,9 @@ public class CountLessThanEmployeesCount extends AbstarctCommand {
         } catch (WrongNumberOfElements wrongNumberOfElements) {
             Console.println("Использование: '" + getName() + "' - " + getDesc());
         }
+        catch (NullPointerException exception){
+            Console.printerror("Ошибка");
+        }
         return false;
     }
 }

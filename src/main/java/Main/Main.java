@@ -14,8 +14,8 @@ import java.time.ZonedDateTime;
 import java.util.*;
 
 public class Main {
-    public static final String PS1 = "$ ";
-    public static final String PS2 = "> ";
+    public static final String Type1 = "$ ";
+    public static final String Type2 = "> ";
 
     public static void main(String[] args) {
         try (Scanner userScanner = new Scanner(System.in)) {
@@ -26,7 +26,7 @@ public class Main {
                     new RemoveLowerElement(organizationCollection, newOrganization), new RemoveLowerKeyNull(organizationCollection), new ReplaceIfGreaterElementNull(organizationCollection, newOrganization), new Save(organizationCollection), new Show(organizationCollection),
                     new SumOfEmployeesCount(organizationCollection), new UpdateIdElement(organizationCollection, newOrganization));
 
-            Console console = new Console(userScanner, commandsList);
+            Console console = new Console(userScanner, commandsList, newOrganization);
             console.consolemode();
         }
 

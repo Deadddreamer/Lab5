@@ -1,6 +1,8 @@
 package Commands;
 
 import Data.Organization;
+import Exceptions.EmptyCollectionExeption;
+import Exceptions.ScriptError;
 import Exceptions.WrongNumberOfElements;
 import utility.Console;
 import utility.NewOrganization;
@@ -20,9 +22,10 @@ public class ReplaceIfGreaterElementNull extends AbstarctCommand {
     public boolean execute(String argument) {
         try {
             if (argument.isEmpty()) throw new WrongNumberOfElements();
+            if (organizationCollection.collSize() == 0) throw new EmptyCollectionExeption();
             Integer key = Integer.parseInt(argument);
             Organization newOrg = new Organization(
-                    newOrganization.askId(),
+                    organizationCollection.createId(),
                     newOrganization.askName(),
                     newOrganization.askCoordinates(),
                     newOrganization.askAnnualturnOver(),
@@ -32,14 +35,20 @@ public class ReplaceIfGreaterElementNull extends AbstarctCommand {
                     ZonedDateTime.now());
             if (organizationCollection.compareTwo(key, newOrg)) {
                 organizationCollection.replaceOrg(key, newOrg);
-            Console.println("Значение успешно перезаписано");}
+            Console.println("Значение успешно перезаписано");
+            }
             else{
                 Console.println("Значение не перезаписано");
             }
-
+            return true;
         }
         catch(WrongNumberOfElements exception){
             Console.println("Использование: '" + getName() + "' -" + getDesc());
+        }
+        catch (ScriptError exception){
+            return false;
+        } catch (EmptyCollectionExeption exeption) {
+            Console.printerror("Коллекция пуста");
         }
         return false;
     }
