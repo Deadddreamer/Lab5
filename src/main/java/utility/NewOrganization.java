@@ -37,6 +37,7 @@ public class NewOrganization {
                 Console.print(Main.Type2);
                 idstr = scanner.nextLine().trim();
                 id = Integer.parseInt(idstr);
+                if (id <= 0) throw new NumberFormatException();
                 break;
 
             } catch (NumberFormatException e) {
@@ -78,6 +79,7 @@ public class NewOrganization {
              xstr = scanner.nextLine().trim();
                 if (scriptMode) Console.println(xstr);
                 x = Long.parseLong(xstr);
+                if(xstr.equals("")) throw new NoSuchElementException();
                 break;
                 }
             catch (NumberFormatException e) {
@@ -95,6 +97,7 @@ public class NewOrganization {
             Console.print(Main.Type2);
             ystr = scanner.nextLine().trim();
             y = Integer.parseInt(ystr);
+            if(ystr.equals("")) throw new NoSuchElementException();
             if (scriptMode) Console.println(ystr);
             break;
         } catch (NumberFormatException e) {
@@ -120,6 +123,7 @@ public class NewOrganization {
                 Console.print(Main.Type2);
                 strAnnual = scanner.nextLine().trim();
                 annual = Integer.parseInt(strAnnual);
+                if (annual <= 0) throw new NumberFormatException();
                 if (scriptMode) Console.println(strAnnual);
                 break;
             }
@@ -148,6 +152,7 @@ public class NewOrganization {
                 Console.print(Main.Type2);
                 strEmployees = scanner.nextLine().trim();
                 employees = Long.parseLong(strEmployees);
+                if (employees <= 0) throw new NumberFormatException();
                 if (scriptMode) Console.println(strEmployees);
                 break;
             }

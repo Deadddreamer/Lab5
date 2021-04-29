@@ -50,6 +50,9 @@ public class ReplaceIfGreaterElementNull extends AbstarctCommand {
         } catch (EmptyCollectionExeption exeption) {
             Console.printerror("Коллекция пуста");
         }
+          catch (NullPointerException exception){
+            Console.printerror("Нет такого ключа");
+          }
         return false;
     }
 }

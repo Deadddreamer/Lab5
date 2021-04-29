@@ -2,51 +2,52 @@ package utility;
 import Data.Organization;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.StreamException;
-import com.thoughtworks.xstream.security.ForbiddenClassException;
-import com.thoughtworks.xstream.security.NoTypePermission;
-import com.thoughtworks.xstream.security.NullPermission;
-import com.thoughtworks.xstream.security.PrimitiveTypePermission;
 
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 
 public class OrganizationCollection {
     private LocalDateTime initTime = null;
     private LocalDateTime lastSave = null;
-
-    FileReader file;
-    FileReader test;
+    private HashMap<Integer,Organization> hm1 = new HashMap<>();
+    private String path;
     XStream xs = new XStream();
+    private FileReader file;
 
-    {
+    ArrayList<Integer> keys = new ArrayList<>(hm1.keySet());
+
+    public void loadColl(){
         try {
-            file = new FileReader("C:\\Users\\vital\\IdeaProjects\\Lab5mav\\l");
-            test = new FileReader("C:\\Users\\vital\\IdeaProjects\\Lab5mav\\l");
+            Scanner scanner = new Scanner(System.in);
+            path = scanner.nextLine().trim();
+            file = new FileReader(path);
+            Path p = Paths.get(path);
+            if (p.toRealPath().toString().length() > 3 && p.toRealPath().toString().trim().startsWith("/dev")) {
+                Console.printerror("Недопустимый путь к файлу!");}
 
-          Object tryFile = xs.fromXML(test);
-          initTime = LocalDateTime.now();
-
-        } catch (FileNotFoundException e) {
+            hm1 = (HashMap) xs.fromXML(file);
+            initTime = LocalDateTime.now();}
+        catch (FileNotFoundException e) {
             Console.printerror("Файл не найден");
             System.exit(0);
         }
-          catch (StreamException exception){
-            Console.printerror("Файл повреждён");
-            System.exit(0);
+        catch (StreamException exception){
+            Console.printerror("Файл пуст или повреждён,при сохранении файл будет перезаписан");
+        } catch (IOException e) {
+            Console.printerror("ЫыЫыыЫ");
         }
     }
 
-    HashMap<Integer,Organization> hm1 = (HashMap) xs.fromXML(file);
-    ArrayList<Integer> keys = new ArrayList<>(hm1.keySet());
     public void outcall() {
-        for (Object i :
-                hm1.keySet()) {
-            System.out.println(hm1.get(i));
+        for (Map.Entry entry : hm1.entrySet()) {
+            System.out.println(entry);
         }
     }
     public int collSize(){
@@ -74,7 +75,7 @@ public class OrganizationCollection {
     public void saveColl(){
 
         try {
-            OutputStream os = new FileOutputStream("C:\\Users\\vital\\IdeaProjects\\Lab5mav\\l");
+            OutputStream os = new FileOutputStream(path);
             Writer osr = new OutputStreamWriter(os);
             osr.write(xs.toXML(hm1));
             osr.close();

@@ -60,7 +60,9 @@ import java.time.ZonedDateTime;
         }
 
         public int compareTo(Organization organization){
-            return id.compareTo(organization.getId());
+            int result = annualTurnover.compareTo(organization.getAnnualTurnover());
+            if (result == 0) result = employeesCount.compareTo(organization.employeesCount);
+            return result;
         }
 
         @Override

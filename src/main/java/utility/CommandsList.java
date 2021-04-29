@@ -9,22 +9,22 @@ import java.util.List;
 
 public class CommandsList {
     private List<CommandInterface> commands = new ArrayList<>();
-    private CommandInterface clear;
-    private CommandInterface countLessEmployeesCount;
-    private CommandInterface executeScriptFileName;
-    private CommandInterface exit;
-    private CommandInterface help;
-    private CommandInterface info;
-    private CommandInterface insertNullElement;
-    private CommandInterface printUniqueEmployeesCount;
-    private CommandInterface removeKeyNull;
-    private CommandInterface removeLowerElement;
-    private CommandInterface removeLowerKeyNull;
-    private CommandInterface replaceIfGreaterElementNull;
-    private CommandInterface save;
-    private CommandInterface show;
-    private CommandInterface sumOfEmployeesCount;
-    private CommandInterface updateIdElement;
+    private final CommandInterface clear;
+    private final CommandInterface countLessEmployeesCount;
+    private final CommandInterface executeScriptFileName;
+    private final CommandInterface exit;
+    private final CommandInterface help;
+    private final CommandInterface info;
+    private final CommandInterface insertNullElement;
+    private final CommandInterface printUniqueEmployeesCount;
+    private final CommandInterface removeKeyNull;
+    private final CommandInterface removeLowerElement;
+    private final CommandInterface removeLowerKeyNull;
+    private final CommandInterface replaceIfGreaterElementNull;
+    private final CommandInterface save;
+    private final CommandInterface show;
+    private final CommandInterface sumOfEmployeesCount;
+    private final CommandInterface updateIdElement;
 
     public CommandsList(CommandInterface clear, CommandInterface countLessEmployeesCount, CommandInterface executeScriptFileName,
                         CommandInterface exit, CommandInterface help, CommandInterface info, CommandInterface insertNullElement,

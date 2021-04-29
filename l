@@ -3,94 +3,56 @@
     <int>1</int>
     <Data.Organization>
       <id>1</id>
-      <name>fedor</name>
+      <name>Abibas</name>
       <coordinates>
-        <x>1</x>
-        <y>2</y>
+        <x>131</x>
+        <y>313</y>
       </coordinates>
-      <creationDate>2021-03-26T15:24:54.1747787+03:00[Europe/Moscow]</creationDate>
-      <annualTurnover>23</annualTurnover>
-      <employeesCount>21</employeesCount>
-      <type>TRUST</type>
+      <creationDate>2021-04-29T04:22:55.5640299+03:00[GMT+03:00]</creationDate>
+      <annualTurnover>45125</annualTurnover>
+      <employeesCount>3321</employeesCount>
+      <type>COMMERCIAL</type>
       <postalAddress>
-        <street>ffqwq</street>
-        <zipCode>32</zipCode>
+        <street>Lomo</street>
+        <zipCode>9</zipCode>
       </postalAddress>
     </Data.Organization>
   </entry>
   <entry>
     <int>2</int>
     <Data.Organization>
-      <id>2</id>
-      <name>fedor2</name>
+      <id>1</id>
+      <name>Niki</name>
       <coordinates>
-        <x>1</x>
-        <y>2</y>
+        <x>989</x>
+        <y>898</y>
       </coordinates>
-      <creationDate>2021-03-26T15:24:54.1747787+03:00[Europe/Moscow]</creationDate>
-      <annualTurnover>23</annualTurnover>
-      <employeesCount>21</employeesCount>
-      <type>TRUST</type>
+      <creationDate>2021-04-29T04:23:57.328917+03:00[GMT+03:00]</creationDate>
+      <annualTurnover>52154</annualTurnover>
+      <employeesCount>1233</employeesCount>
+      <type>COMMERCIAL</type>
       <postalAddress>
-        <street>ffqwq</street>
-        <zipCode>32</zipCode>
+        <street>Kronva</street>
+        <zipCode>14</zipCode>
       </postalAddress>
     </Data.Organization>
   </entry>
   <entry>
     <int>3</int>
     <Data.Organization>
-      <id>3</id>
-      <name>Rebok</name>
+      <id>1</id>
+      <name>IwantToDie</name>
       <coordinates>
-        <x>3</x>
-        <y>4</y>
+        <x>666</x>
+        <y>999</y>
       </coordinates>
-      <creationDate>2021-04-07T19:36:37.93146+03:00[GMT+03:00]</creationDate>
-      <annualTurnover>5000</annualTurnover>
-      <employeesCount>322</employeesCount>
-      <type>COMMERCIAL</type>
-      <postalAddress>
-        <street>Lomo</street>
-        <zipCode>3</zipCode>
-      </postalAddress>
-    </Data.Organization>
-  </entry>
-  <entry>
-    <int>4</int>
-    <Data.Organization>
-      <id>4</id>
-      <name>1</name>
-      <coordinates>
-        <x>1</x>
-        <y>1</y>
-      </coordinates>
-      <creationDate>2021-04-16T17:36:47.4004521+03:00[GMT+03:00]</creationDate>
-      <annualTurnover>1</annualTurnover>
-      <employeesCount>1</employeesCount>
+      <creationDate>2021-04-29T09:04:33.7179379+03:00[GMT+03:00]</creationDate>
+      <annualTurnover>696969</annualTurnover>
+      <employeesCount>969696</employeesCount>
       <type>TRUST</type>
       <postalAddress>
-        <street>1</street>
-        <zipCode>1</zipCode>
-      </postalAddress>
-    </Data.Organization>
-  </entry>
-  <entry>
-    <int>5</int>
-    <Data.Organization>
-      <id>5</id>
-      <name>OlegHuyesos</name>
-      <coordinates>
-        <x>322</x>
-        <y>228</y>
-      </coordinates>
-      <creationDate>2021-04-28T21:29:52.0359033+03:00[GMT+03:00]</creationDate>
-      <annualTurnover>3228</annualTurnover>
-      <employeesCount>1488</employeesCount>
-      <type>TRUST</type>
-      <postalAddress>
-        <street>Huy</street>
-        <zipCode>SOsi</zipCode>
+        <street>Road</street>
+        <zipCode>69</zipCode>
       </postalAddress>
     </Data.Organization>
   </entry>
