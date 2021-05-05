@@ -4,11 +4,18 @@ import Main.Main;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
+/**
+ * Класс для чтения команд с пользовательского ввода
+ */
 public class Console {
     private final Scanner scanner;
     private final CommandsList commandsList;
@@ -19,7 +26,9 @@ public class Console {
     this.commandsList = commandsList;
     this.newOrganization = newOrganization;
     }
-
+    /**
+     * Режим пользовательского ввода
+     */
     public void consolemode() {
         String[] userCommand = {"", ""};
         int commandStatus;
@@ -37,9 +46,23 @@ public class Console {
         }
 
     }
+
+    /**
+     * Режим скрипта
+     * @param argument аргумент
+     * @return статус завершения
+     */
+
     public int scriptMode(String argument) {
         String[] userCommand = {"", ""};
         int commandStatus;
+        try {
+            Path p = Paths.get(argument);
+            if (p.toRealPath().toString().length() > 3 && p.toRealPath().toString().trim().startsWith("/dev")) return 1;
+
+        } catch (InvalidPathException | IOException exception) {
+            Console.printerror("Зачем!!!!???");
+        }
         script.add(argument);
         try (Scanner scriptScanner = new Scanner(new File(argument))) {
             if (!scriptScanner.hasNext()) throw new NoSuchElementException();
@@ -82,24 +105,46 @@ public class Console {
         }
         return 1;
     }
+
+    /**
+     * Выводит на экран агрумент
+     * @param toOut выводимый аргумент
+     */
     public static void print(Object toOut) {
         System.out.print(toOut);
     }
 
+    /**
+     * Выводит на экран форматированные аргументы
+     * @param element1 аргумент 1
+     * @param element2 аргумент 2
+     */
     public static void printtable(Object element1, Object element2) {
-        System.out.printf("%-37s%-1s%n", element1, element2);
+        System.out.printf("%-40s%-4s%n", element1, element2);
     }
 
+    /**
+     * Выводит на экран аргумент в новую строку
+     * @param toOut аргумент
+     */
     public static void println(Object toOut) {
         System.out.println(toOut);
 
-
     }
+
+    /**
+     * Выводит на экран аргумент с подписью "error"
+     * @param toOut аргумент
+     */
     public static void printerror(Object toOut) {
         System.out.println("error: " + toOut);
     }
 
-
+    /**
+     * Запускает команду
+     * @param userCommand
+     * @return статус заверщения
+     */
     private int launchCommand(String[] userCommand) {
         switch (userCommand[0]) {
             case "":

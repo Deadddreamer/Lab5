@@ -9,6 +9,9 @@ import Main.Main;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
+/**
+ * Класс который запрашивает данные для создания нового элемента.
+ */
 public class NewOrganization {
     private Scanner scanner;
     private boolean scriptMode;
@@ -16,18 +19,41 @@ public class NewOrganization {
         this.scanner = scanner;
 
     }
+
+    /**
+     * @return возвращает текущий сканер
+     */
     public Scanner getScanner(){
         return scanner;
     }
+
+    /**
+     * Устанавливает сканер в режим пользовательского мода
+     * @param scanner
+     */
     public void userScanner(Scanner scanner){
         this.scanner = scanner;
     }
+
+    /**
+     * Устанавливает режим скрипт мода
+     */
     public void setScriptMode() {
         scriptMode = true;
     }
+
+    /**
+     * Устанавливает интерактивный режим
+     */
     public void setInteractiveMod(){
         scriptMode = false;
     }
+
+    /**
+     * Запрашивает id нового элемента
+     * @return id
+     * @throws ScriptError если в скрипте что-то неверно
+     */
     public Integer askId() throws ScriptError{;
         Integer id;
         String idstr;
@@ -47,6 +73,12 @@ public class NewOrganization {
         }
         return id;
     }
+
+    /**
+     * Запрашивает name нового элемента
+     * @return name
+     * @throws ScriptError если в скрипте что-то неверно
+     */
     public String askName() throws ScriptError{
         String name;
         while (true) {
@@ -69,6 +101,12 @@ public class NewOrganization {
         }
         return name;
     }
+
+    /**
+     * Запрашивает x нового элемента
+     * @return x
+     * @throws ScriptError если в скрипте что-то неверно
+     */
     public Long askX() throws ScriptError{
     Long x;
     String xstr;
@@ -89,6 +127,12 @@ public class NewOrganization {
         }
         return x;
     }
+
+    /**
+     * Запрашивает y нового элемента
+     * @return y
+     * @throws ScriptError если в скрипте что-то неверно
+     */
     public Integer askY() throws ScriptError{
         String ystr;
         Integer y;
@@ -107,6 +151,12 @@ public class NewOrganization {
         }
         return y;
     }
+
+    /**
+     * Возвращает coordinates нового элементы
+     * @return coordinates
+     * @throws ScriptError если в скрипте что-то неверно
+     */
     public Coordinates askCoordinates() throws ScriptError{
         Long x;
         Integer y;
@@ -114,6 +164,12 @@ public class NewOrganization {
         y = askY();
         return new Coordinates(x,y);
     }
+
+    /**
+     * Запрашивает AnnualturnOver нового элементы
+     * @return AnnualturnOver
+     * @throws ScriptError если в скрипте что-то неверно
+     */
     public Integer askAnnualturnOver() throws ScriptError{
         String strAnnual;
         Integer annual;
@@ -143,6 +199,11 @@ public class NewOrganization {
         return annual;
     }
 
+    /**
+     * Запрашивает Employees нового элементы
+     * @return Employees
+     * @throws ScriptError если в скрипте что-то неверно
+     */
     public Long askEmployees() throws ScriptError{
         String strEmployees;
         Long employees;
@@ -171,6 +232,11 @@ public class NewOrganization {
         return employees;
     }
 
+    /**
+     * Запрашивает Type нового элементы
+     * @return Type
+     * @throws ScriptError если в скрипте что-то неверно
+     */
     public OrganizationType askType() throws ScriptError{
         String strType;
         OrganizationType type;
@@ -195,6 +261,11 @@ public class NewOrganization {
         return type;
     }
 
+    /**
+     * Запрашивает Street нового элементы
+     * @return Street
+     * @throws ScriptError если в скрипте что-то неверно
+     */
     public String askStreet() throws ScriptError{
         String street;
         while (true){
@@ -213,6 +284,12 @@ public class NewOrganization {
         }
         return street;
     }
+
+    /**
+     * Запрашивает Zipcode нового элементы
+     * @return Zipcode
+     * @throws ScriptError если в скрипте что-то неверно
+     */
     public String askZipcode() throws ScriptError{
         String zipcode;
         while (true){
@@ -231,6 +308,12 @@ public class NewOrganization {
         return zipcode;
 
     }
+
+    /**
+     * Возвращает Adress нового элементы
+     * @return Adress
+     * @throws ScriptError если в скрипте что-то неверно
+     */
     public Address askAdress() throws ScriptError{
         String street;
         String zipcode;

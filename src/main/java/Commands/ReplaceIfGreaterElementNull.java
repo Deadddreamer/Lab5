@@ -7,12 +7,13 @@ import Exceptions.WrongNumberOfElements;
 import utility.Console;
 import utility.NewOrganization;
 import utility.OrganizationCollection;
-
 import java.time.ZonedDateTime;
-
+/**
+ * Команда ReplaceIfGreaterElementNull
+ */
 public class ReplaceIfGreaterElementNull extends AbstarctCommand {
     private final OrganizationCollection organizationCollection;
-    private NewOrganization newOrganization;
+    private final NewOrganization newOrganization;
     public ReplaceIfGreaterElementNull(OrganizationCollection organizationCollection, NewOrganization newOrganization) {
         super("replace_if_greater_null {element}","заменить значение по ключу, если новое значение больше старого");
         this.organizationCollection = organizationCollection;
@@ -47,7 +48,7 @@ public class ReplaceIfGreaterElementNull extends AbstarctCommand {
         }
         catch (ScriptError exception){
             return false;
-        } catch (EmptyCollectionExeption exeption) {
+        } catch (EmptyCollectionExeption exception) {
             Console.printerror("Коллекция пуста");
         }
           catch (NullPointerException exception){

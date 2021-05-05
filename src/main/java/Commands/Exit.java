@@ -2,7 +2,9 @@ package Commands;
 
 import Exceptions.WrongNumberOfElements;
 import utility.Console;
-
+/**
+ * Команда Exit
+ */
 public class Exit extends AbstarctCommand {
     public Exit() {
         super("exit", "завершить программу");

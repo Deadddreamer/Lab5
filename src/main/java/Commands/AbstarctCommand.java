@@ -1,6 +1,5 @@
 package Commands;
 
-import java.util.ArrayList;
 
 public abstract class AbstarctCommand implements CommandInterface{
     private String name;
@@ -9,15 +8,21 @@ public abstract class AbstarctCommand implements CommandInterface{
         this.name = name;
         this.desc = desc;
     }
+
+    /**
+     * Getter name
+     * @return name
+     */
     public String getName(){
         return name;
     }
+
+    /**
+     * Getter description
+     * @return desc
+     */
     public String getDesc(){
         return desc;
     }
-
-
-
-
 }
 

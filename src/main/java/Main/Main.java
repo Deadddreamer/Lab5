@@ -1,18 +1,13 @@
 package Main;
 
 import Commands.*;
-import Data.Address;
-import Data.Coordinates;
-import Data.Organization;
-import Data.OrganizationType;
-import com.thoughtworks.xstream.XStream;
 import utility.*;
 import utility.Console;
-
-import java.io.*;
-import java.time.ZonedDateTime;
 import java.util.*;
 
+/**
+ * Main класс, запускает программу
+ */
 public class Main {
     public static final String Type1 = "$ ";
     public static final String Type2 = "> ";

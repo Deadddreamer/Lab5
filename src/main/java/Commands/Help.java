@@ -1,7 +1,9 @@
 package Commands;
 import Exceptions.WrongNumberOfElements;
 import utility.Console;
-
+/**
+ * Команда Help
+ */
 public class Help extends AbstarctCommand {
     public Help(){
         super("help","вывести справку по доступным командам");
@@ -13,7 +15,7 @@ public class Help extends AbstarctCommand {
         try {
             if (!argument.isEmpty()) throw new WrongNumberOfElements();
             return true;
-        } catch (WrongNumberOfElements exeption) {
+        } catch (WrongNumberOfElements exception) {
             Console.println("Использование: '" + getName() + "' - " + getDesc());
         }
         return false;

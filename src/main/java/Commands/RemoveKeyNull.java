@@ -1,14 +1,14 @@
 package Commands;
-
-import Data.Organization;
 import Exceptions.EmptyCollectionExeption;
 import Exceptions.KeyNotFoundExeption;
 import Exceptions.WrongNumberOfElements;
 import utility.Console;
 import utility.OrganizationCollection;
-
+/**
+ * Команда RemoveKeyNull
+ */
 public class RemoveKeyNull extends AbstarctCommand {
-    private OrganizationCollection organizationCollection;
+    private final OrganizationCollection organizationCollection;
     public RemoveKeyNull(OrganizationCollection organizationCollection) {
         super("remove_key_null","удалить элемент из коллекции по его ключу");
         this.organizationCollection = organizationCollection;

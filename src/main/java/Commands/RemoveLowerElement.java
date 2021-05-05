@@ -10,10 +10,12 @@ import utility.NewOrganization;
 import utility.OrganizationCollection;
 
 import java.time.ZonedDateTime;
-
+/**
+ * Команда RemoveLowerElement
+ */
 public class RemoveLowerElement extends AbstarctCommand {
-    private OrganizationCollection organizationCollection;
-    private NewOrganization newOrganization;
+    private final OrganizationCollection organizationCollection;
+    private final NewOrganization newOrganization;
     public RemoveLowerElement(OrganizationCollection organizationCollection, NewOrganization newOrganization){
         super("remove_lower {element}","удалить из коллекции все элементы, меньшие, чем заданный");
         this.newOrganization = newOrganization;

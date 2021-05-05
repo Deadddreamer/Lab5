@@ -2,7 +2,9 @@ package Commands;
 
 import Exceptions.WrongNumberOfElements;
 import utility.Console;
-
+/**
+ * Команда ExecuteScriptFileName
+ */
 public class ExecuteScriptFileName extends AbstarctCommand {
     public ExecuteScriptFileName() {
         super("execute_script {file name}", "считать и исполнить скрипт из указанного файла");

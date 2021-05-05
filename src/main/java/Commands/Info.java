@@ -3,9 +3,11 @@ package Commands;
 import Exceptions.WrongNumberOfElements;
 import utility.Console;
 import utility.OrganizationCollection;
-
+/**
+ * Команда info
+ */
 public class Info extends AbstarctCommand {
-private OrganizationCollection organizationCollection;
+private final OrganizationCollection organizationCollection;
     public Info(OrganizationCollection organizationCollection) {
         super("info", "вывести в стандартный поток вывода информацию о коллекции");
         this.organizationCollection = organizationCollection;

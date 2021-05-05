@@ -1,12 +1,13 @@
 package Commands;
 
-import Data.Organization;
 import Exceptions.WrongNumberOfElements;
 import utility.Console;
 import utility.OrganizationCollection;
-
+/**
+ * Команда CountLessThanEmployeesCount
+ */
 public class CountLessThanEmployeesCount extends AbstarctCommand {
-    private OrganizationCollection organizationCollection;
+    private final OrganizationCollection organizationCollection;
     public CountLessThanEmployeesCount(OrganizationCollection organizationCollection){
         super("count_less_than_employees_count","вывести количество элементов, значение поля employeesCount которых меньше заданного");
         this.organizationCollection = organizationCollection;

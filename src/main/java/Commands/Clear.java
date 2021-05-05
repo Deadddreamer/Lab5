@@ -4,6 +4,9 @@ import Exceptions.WrongNumberOfElements;
 import utility.Console;
 import utility.OrganizationCollection;
 
+/**
+ * Команда clear
+ */
 public class Clear extends AbstarctCommand {
     private final OrganizationCollection organizationCollection;
     public Clear(OrganizationCollection organizationCollection){

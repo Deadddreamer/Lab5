@@ -3,9 +3,11 @@ package Commands;
 import Exceptions.WrongNumberOfElements;
 import utility.Console;
 import utility.OrganizationCollection;
-
+/**
+ * Команда Save
+ */
 public class Save extends AbstarctCommand {
-    private OrganizationCollection organizationCollection;
+    private final OrganizationCollection organizationCollection;
     public Save(OrganizationCollection organizationCollection){
         super("save", "сохранить коллекцию в файл");
         this.organizationCollection = organizationCollection;

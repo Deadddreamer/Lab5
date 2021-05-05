@@ -4,7 +4,9 @@ import Exceptions.EmptyCollectionExeption;
 import Exceptions.WrongNumberOfElements;
 import utility.Console;
 import utility.OrganizationCollection;
-
+/**
+ * Команда RemoveLowerKeyNull
+ */
 public class RemoveLowerKeyNull extends AbstarctCommand {
     private final OrganizationCollection organizationCollection;
     public RemoveLowerKeyNull(OrganizationCollection organizationCollection){
@@ -21,9 +23,9 @@ public class RemoveLowerKeyNull extends AbstarctCommand {
             Integer key = Integer.parseInt(argument);
             organizationCollection.removeLowerKey(key);
             Console.println("Организации удалены!");
-        } catch (WrongNumberOfElements exeption) {
+        } catch (WrongNumberOfElements exception) {
             Console.println("Использование: '" + getName() + "' - " + getDesc());
-        } catch (EmptyCollectionExeption exeption) {
+        } catch (EmptyCollectionExeption exception) {
             Console.printerror("Коллекция пуста!");
         }
 

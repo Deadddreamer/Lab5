@@ -1,8 +1,14 @@
 package Data;
 
 public class Coordinates {
-    private Long x; //Поле не может быть null
-    private Integer y; //Поле не может быть null
+    private final Long x; //Поле не может быть null
+    private final Integer y; //Поле не может быть null
+
+    /**
+     * Координаты
+     * @param x координата x
+     * @param y координата y
+     */
     public Coordinates(Long x, Integer y){
         this.x = x;
         this.y = y;
@@ -15,10 +21,19 @@ public class Coordinates {
                 ", y=" + y +
                 '}';
     }
+
+    /**
+     * Getter x
+     * @return x
+     */
     public Long getX(){
         return x;
     }
 
+    /**
+     * Getter y
+     * @return y
+     */
     public Integer getY(){
         return y;
     }
@@ -27,7 +42,7 @@ public class Coordinates {
         if (this == obj) return true;
         if (obj instanceof Coordinates) {
             Coordinates coordinatesObj = (Coordinates) obj;
-            return (x == coordinatesObj.getX()) && y.equals(coordinatesObj.getY());
+            return (x.equals(coordinatesObj.getX())) && y.equals(coordinatesObj.getY());
         }
         return false;
     }

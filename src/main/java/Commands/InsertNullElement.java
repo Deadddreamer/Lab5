@@ -8,7 +8,9 @@ import utility.NewOrganization;
 import utility.OrganizationCollection;
 
 import java.time.ZonedDateTime;
-
+/**
+ * Команда InsertNullElement
+ */
 public class InsertNullElement extends AbstarctCommand {
     private final NewOrganization newOrganization;
     private final OrganizationCollection organizationCollection;

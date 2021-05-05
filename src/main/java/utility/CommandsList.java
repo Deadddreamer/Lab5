@@ -6,7 +6,9 @@ import Commands.CommandInterface;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Класс управляющий командами
+ */
 public class CommandsList {
     private List<CommandInterface> commands = new ArrayList<>();
     private final CommandInterface clear;
@@ -63,8 +65,14 @@ public class CommandsList {
         commands.add(show);
         commands.add(sumOfEmployeesCount);
         commands.add(updateIdElement);
+        commands.add(help);
     }
 
+    /**
+     * Выводит все команды и их описание
+     * @param argument аргумент команды
+     * @return статус завершения команды
+     */
     public boolean help(String argument) {
         if (help.execute(argument)) {
             for (CommandInterface command : commands) {
@@ -73,32 +81,132 @@ public class CommandsList {
             return true;
         } else return false;
     }
+    /**
+     * Вызывает команду exit
+     * @param argument аргумент команды
+     * @return статус завершения команды
+     */
     public boolean exit(String argument){
        return exit.execute(argument);
     }
-
+    /**
+     * Сообщает, что нет введёной команды
+     * @return статус завершения команды
+     */
     public boolean noSuchCommand(String command) {
         Console.println("Команда '" + command + "' не найдена. Наберите 'help' для справки.");
         return false;
     }
-    public boolean show (String argument){ return show.execute(argument); }
+    /**
+     * Вызывает команду show
+     * @param argument аргумент команды
+     * @return статус завершения команды
+     */
+    public boolean show (String argument){
+        return show.execute(argument);
+    }
+    /**
+     * Вызывает команду removeKeyNull
+     * @param argument аргумент команды
+     * @return статус завершения команды
+     */
     public boolean removeKeyNull(String argument){
         return removeKeyNull.execute(argument);
     }
-    public boolean clear(String argument){ return clear.execute(argument);}
+    /**
+     * Вызывает команду clear
+     * @param argument аргумент команды
+     * @return статус завершения команды
+     */
+    public boolean clear(String argument){
+        return clear.execute(argument);
+    }
+    /**
+     * Вызывает команду removeLowerKeyNull
+     * @param argument аргумент команды
+     * @return статус завершения команды
+     */
     public boolean removeLowerKeyNull(String argument){
         return removeLowerKeyNull.execute(argument);
     }
+    /**
+     * Вызывает команду save
+     * @param argument аргумент команды
+     * @return статус завершения команды
+     */
     public boolean save(String argument){
         return save.execute(argument);
     }
-    public boolean insertNullElement(String argument){return insertNullElement.execute(argument);}
-    public boolean info(String argument){return info.execute(argument);}
-    public boolean sumOfEmployees(String argument){return sumOfEmployeesCount.execute(argument);}
-    public boolean lessThanEmployees(String argument){return countLessEmployeesCount.execute(argument);}
-    public boolean printUniqueEmployees(String argument){return printUniqueEmployeesCount.execute(argument);}
-    public boolean updateId(String argument){return updateIdElement.execute(argument);}
-    public boolean removeLowerElement(String argument){return removeLowerElement.execute(argument);}
-    public boolean replaceIfGreater(String argument){return replaceIfGreaterElementNull.execute(argument);}
-    public boolean executeScript(String argument){return executeScriptFileName.execute(argument);}
+    /**
+     * Вызывает команду insertNullElement
+     * @param argument аргумент команды
+     * @return статус завершения команды
+     */
+    public boolean insertNullElement(String argument){
+        return insertNullElement.execute(argument);
+    }
+    /**
+     * Вызывает команду info
+     * @param argument аргумент команды
+     * @return статус завершения команды
+     */
+    public boolean info(String argument){
+        return info.execute(argument);
+    }
+    /**
+     * Вызывает команду sumOfEmployees
+     * @param argument аргумент команды
+     * @return статус завершения команды
+     */
+    public boolean sumOfEmployees(String argument){
+        return sumOfEmployeesCount.execute(argument);
+    }
+    /**
+     * Вызывает команду lessThanEmployees
+     * @param argument аргумент команды
+     * @return статус завершения команды
+     */
+    public boolean lessThanEmployees(String argument){
+        return countLessEmployeesCount.execute(argument);
+    }
+    /**
+     * Вызывает команду printUniqueEmployees
+     * @param argument аргумент команды
+     * @return статус завершения команды
+     */
+    public boolean printUniqueEmployees(String argument){
+        return printUniqueEmployeesCount.execute(argument);
+    }
+    /**
+     * Вызывает команду updateId
+     * @param argument аргумент команды
+     * @return статус завершения команды
+     */
+    public boolean updateId(String argument){
+        return updateIdElement.execute(argument);
+    }
+    /**
+     * Вызывает команду removeLowerElement
+     * @param argument аргумент команды
+     * @return статус завершения команды
+     */
+    public boolean removeLowerElement(String argument){
+        return removeLowerElement.execute(argument);
+    }
+    /**
+     * Вызывает команду replaceIfGreater
+     * @param argument аргумент команды
+     * @return статус завершения команды
+     */
+    public boolean replaceIfGreater(String argument){
+        return replaceIfGreaterElementNull.execute(argument);
+    }
+    /**
+     * Вызывает команду executeScript
+     * @param argument аргумент команды
+     * @return статус завершения команды
+     */
+    public boolean executeScript(String argument){
+        return executeScriptFileName.execute(argument);
+    }
 }

@@ -1,17 +1,17 @@
 package Data;
-
-import Data.OrganizationType;
-
 import java.time.ZonedDateTime;
-    public class Organization {
-        private Integer id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
-        private String name; //Поле не может быть null, Строка не может быть пустой
-        private Coordinates coordinates; //Поле не может быть null
-        private java.time.ZonedDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
-        private Integer annualTurnover; //Значение поля должно быть больше 0
-        private Long employeesCount; //Значение поля должно быть больше 0
-        private OrganizationType type; //Поле не может быть null
-        private Address postalAddress; //Поле не может быть null
+/**
+ * Организация
+ */
+    public class Organization implements Comparable<Organization> {
+        private final Integer id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
+        private final String name; //Поле не может быть null, Строка не может быть пустой
+        private final Coordinates coordinates; //Поле не может быть null
+        private final java.time.ZonedDateTime creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+        private final Integer annualTurnover; //Значение поля должно быть больше 0
+        private final Long employeesCount; //Значение поля должно быть больше 0
+        private final OrganizationType type; //Поле не может быть null
+        private final Address postalAddress; //Поле не может быть null
 
         public Organization (Integer id, String name, Coordinates coordinates, int annualTurnover, long employeesCount, OrganizationType type, Address postalAddress, ZonedDateTime zonedDateTime){
             this.id = id;
@@ -24,27 +24,56 @@ import java.time.ZonedDateTime;
             this.creationDate = zonedDateTime;
         }
 
+    /**
+     * Getter id
+     * @return id
+     */
         public Integer getId() {
             return id;
         }
+    /**
+     * Getter name
+     * @return name
+     */
         public String getName(){
             return name;
         }
+    /**
+     * Getter coordinates
+     * @return coordinates
+     */
         public Coordinates getCoordinates(){
             return coordinates;
         }
+    /**
+     * Getter annualTurnover
+     * @return annualTurnover
+     */
         public Integer getAnnualTurnover(){
             return annualTurnover;
         }
+    /**
+     * Getter employeesCount
+     * @return employeesCount
+     */
         public Long getEmployeesCount(){
             return employeesCount;
         }
+    /**
+     * Getter type
+     * @return type
+     */
         public OrganizationType getType(){
             return type;
         }
+    /**
+     * Getter postalAddress
+     * @return postalAddress
+     */
         public Address getPostalAddress(){
             return postalAddress;
         }
+
         @Override
         public String toString() {
             return "Data.Organization{" +
@@ -58,12 +87,13 @@ import java.time.ZonedDateTime;
                     ", postalAddress=" + postalAddress +
                     '}';
         }
-
+        @Override
         public int compareTo(Organization organization){
             int result = annualTurnover.compareTo(organization.getAnnualTurnover());
             if (result == 0) result = employeesCount.compareTo(organization.employeesCount);
             return result;
         }
+
 
         @Override
         public boolean equals(Object object) {

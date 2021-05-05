@@ -4,7 +4,9 @@ import Exceptions.EmptyCollectionExeption;
 import Exceptions.WrongNumberOfElements;
 import utility.Console;
 import utility.OrganizationCollection;
-
+/**
+ * Команда Show
+ */
 public class Show extends AbstarctCommand{
     private final OrganizationCollection organizationCollection;
     public Show(OrganizationCollection organizationCollection) {
@@ -21,7 +23,7 @@ public class Show extends AbstarctCommand{
             return true;
         } catch (WrongNumberOfElements exception) {
             Console.println("Использование: '" + getName() + "' - " + getDesc());
-        } catch (EmptyCollectionExeption exeption) {
+        } catch (EmptyCollectionExeption exception) {
             Console.printerror("Коллекция пуста!");
         }
         return false;

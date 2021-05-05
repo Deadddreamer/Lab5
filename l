@@ -2,10 +2,10 @@
   <entry>
     <int>1</int>
     <Data.Organization>
-      <id>1</id>
-      <name>Abibas</name>
+      <id>2</id>
+      <name>Niki</name>
       <coordinates>
-        <x>131</x>
+        <x>312</x>
         <y>313</y>
       </coordinates>
       <creationDate>2021-04-29T04:22:55.5640299+03:00[GMT+03:00]</creationDate>

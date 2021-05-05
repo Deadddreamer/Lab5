@@ -9,9 +9,12 @@ import utility.OrganizationCollection;
 
 import java.time.ZonedDateTime;
 
+/**
+ * Команда UpdateIdElement
+ */
 public class UpdateIdElement extends AbstarctCommand {
-    private OrganizationCollection organizationCollection;
-    private NewOrganization newOrganization;
+    private final OrganizationCollection organizationCollection;
+    private final NewOrganization newOrganization;
     public UpdateIdElement(OrganizationCollection organizationCollection, NewOrganization newOrganization){
         super("update_id {element}","обновить значение элемента коллекции, id которого равен заданному");
         this.newOrganization = newOrganization;
