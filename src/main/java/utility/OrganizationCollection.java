@@ -20,47 +20,27 @@ public class OrganizationCollection {
     private LocalDateTime initTime = null;
     private LocalDateTime lastSave = null;
     private HashMap<Integer,Organization> hm1 = new HashMap<>();
-    private String path;
     XStream xs = new XStream();
     private FileReader file;
-
+    private CollLoader collLoader;
+    public OrganizationCollection(CollLoader collLoader){
+        this.collLoader = collLoader;
+        loadColl();
+    }
     /**
      * Метод для загрузги коллекции, защищает от неправильных ссылок и
      */
     public void loadColl(){
-        try {
-            Console.println("Введите путь к файлу с коллекцией");
-            Scanner scanner = new Scanner(System.in);
-            path = scanner.nextLine().trim();
-            file = new FileReader(path);
-            Path p = Paths.get(path);
-            if (p.toRealPath().toString().length() > 3 && p.toRealPath().toString().trim().startsWith("/dev")) {
-                Console.printerror("Недопустимый путь к файлу!");
-            System.exit(0);}
-
-            hm1 = (HashMap) xs.fromXML(file);
+            hm1 = collLoader.load();
             initTime = LocalDateTime.now();
             for(Integer i: hm1.keySet()){
                 Organization org = hm1.get(i);
                 if(org.getId() == null || org.getId()<0 || org.getName().trim().equals("") || org.getCoordinates()== null
                         || org.getEmployeesCount() == null || org.getEmployeesCount() <=0 || org.getAnnualTurnover() == null ||
-                        org.getAnnualTurnover() <= 0 || org.getType() == null || org.getPostalAddress() == null) throw new NumberFormatException();
+                        org.getAnnualTurnover() <= 0 || org.getType() == null || org.getPostalAddress() == null){ Console.printerror("Неправильный файл"); System.exit(0);}
 
-            }}
+            }
 
-        catch (FileNotFoundException e) {
-            Console.printerror("Файл не найден");
-            System.exit(0);
-        }
-        catch (NumberFormatException | ConversionException exception){
-            Console.printerror("Ошибка в коллекции файла");
-            System.exit(0);
-        } catch (StreamException exception){
-            Console.printerror("Файл пуст или повреждён,при сохранении файл будет перезаписан");
-        } catch (IOException | InvalidPathException e) {
-            Console.printerror("ЫыЫыыЫ");
-            System.exit(0);
-        }
 
     }
 
@@ -124,15 +104,8 @@ public class OrganizationCollection {
      */
     public void saveColl(){
 
-        try {
-            OutputStream os = new FileOutputStream(path);
-            Writer osr = new OutputStreamWriter(os);
-            osr.write(xs.toXML(hm1));
-            osr.close();
-            lastSave = LocalDateTime.now();
-        } catch (IOException e) {
-            Console.printerror("Ошибка");
-        }
+        collLoader.writeColl(hm1);
+        lastSave = LocalDateTime.now();
     }
 
     /**

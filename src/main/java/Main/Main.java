@@ -14,8 +14,9 @@ public class Main {
 
     public static void main(String[] args) {
         try (Scanner userScanner = new Scanner(System.in)) {
-           OrganizationCollection organizationCollection = new OrganizationCollection();
-           organizationCollection.loadColl();
+            final String env = "LABA";
+            CollLoader collLoader = new CollLoader(env);
+            OrganizationCollection organizationCollection = new OrganizationCollection(collLoader);
             NewOrganization newOrganization = new NewOrganization(userScanner);
             CommandsList commandsList = new CommandsList(new Clear(organizationCollection), new CountLessThanEmployeesCount(organizationCollection), new ExecuteScriptFileName(),
                     new Exit(), new Help(), new Info(organizationCollection), new InsertNullElement(newOrganization,organizationCollection), new PrintUniqueEmployeesCount(organizationCollection), new RemoveKeyNull(organizationCollection),
@@ -29,3 +30,6 @@ public class Main {
 
     }
     }
+
+
+
